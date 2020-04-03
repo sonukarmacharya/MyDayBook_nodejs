@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+      <%- include('header')%>
+        <%if(msg!=''){%>
+          <%= msg %>
+          <%}%>
+        <div class="table-responsive">          
+          <table class="table" style="width: 40%;margin-left: 20em;">
+            <thead >
+              <tr>
+                <th  style="text-align: center;">Title</th>
+                
+                <th  style="text-align: center;">Action</th>
+              </tr>
+            </thead>
+            <tbody  style="text-align: center;">
+              <% if(data.length>0){%>
+                <% data.forEach(function(row){%>
+              <tr>
+                <td><%= row.title %></td>
+                
+                <td>
+                  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<%= row._id%>">View</button>
+                  <a href="/delete/<%= row._id%>">delete</a>
+                    <a href="/edit/<%= row._id%>">edit</a></td>
+              </tr>
+              <div class="modal fade" id="myModal<%= row._id%>" role="dialog">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title"><%= row.title %></h4>
+                    </div>
+                    <div class="modal-body">
+                      <p><%- row.detail%></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%})}%>
+            </tbody>
+          </table>
+          <% if (pages > 0) { %>
+            <ul class="pagination text-center">
+                <% if (current == 1) { %>
+                    <li class="disabled"><a>First</a></li>
+                <% } else { %>
+                    <li><a href="/dash/1">First</a></li>
+                <% } %>
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                    <li class="disabled"><a>...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                        <li class="active"><a><%= i %></a></li>
+                    <% } else { %>
+                        <li><a href="/dash/<%= i %>"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                <% } %>
+                <% if (current == pages) { %>
+                    <li class="disabled"><a>Last</a></li>
+                <% } else { %>
+                    <li><a href="/dash/<%= pages %>">Last</a></li>
+                <% } %>
+            </ul>
+        <% } %>
+          </div>
+        </div>
+          
+    </body>
+</html>

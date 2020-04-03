@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="/javascripts/style.js"></script>
+
+        <!-- <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+    </head>
+    <body>
+        <form method="POST" action="/dash">
+            <nav class="navbar navbar-inverse">
+                  <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                      <li ><a href="/dash">logo</a></li>
+                      
+                    </ul>
+                    <div class="navbar-header">
+                      <a class="navbar-brand" href="/dash">WebSiteName</a>
+                    </div>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                      
+                      <li><a href="/dash">Back</a></li>
+                      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+                  </div>
+                </nav>
+      </form>
+      
+        <div class="login-reg-panel">
+          <div class="register-info-box">
+            <%if(msg!=''){%>
+              <%= msg %>
+              <%}%>
+          </div>
+  <div class="white-panel">
+    <div class="login-show">
+        <h2>Add Your Day</h2>
+        <form method="POST" action="/addDay">
+            <input type="text" placeholder="title" name="title" class="form-control">
+            <textarea  rows="4" cols="50"  class="form-control"  name="tarea" id="editor1"> 
+           </textarea><br>
+           <input id="label-login" for="log-login-show" type="submit" value="Add">
+      
+        </form>
+    </div>
+  </div>
+</div> 
+<!-- <script>
+  CKEDITOR.replace( 'editor1' );
+</script>  -->
+    </body>
+</html>
