@@ -1,8 +1,7 @@
-var mongoose = require('mongoose')
-mongoose.connect('mmongodb://localhost:27017/dayBook',{useNewUrlParser:true,useCreateIndex:true})
 
-var conn = mongoose.connection
-
+//mmongodb://localhost:27017/dayBook
+// var conn = mongoose.connection
+let mongoose = require("mongoose")
 var userSchema = new mongoose.Schema({
     username:{
         type:String,
