@@ -1,14 +1,8 @@
-var mongoose = require('mongoose')
-mongoose.connect('mmongodb://localhost:27017/dayBook',{useNewUrlParser:true})
+var mongoose = require("mongoose");
 
-var conn = mongoose.connection
-
-var dayBookSchema = new mongoose.Schema({
-    title: String,
-    detail: String,
-    imagename: String,
-})
-
-var dayBookModel = mongoose.model('DayBook',dayBookSchema)
-
-module.exports = dayBookModel
+var dayBookSchema = mongoose.Schema({
+  title: String,
+  detail: String,
+  imagename: String,
+});
+module.exports = mongoose.model("DayBook", dayBookSchema);
