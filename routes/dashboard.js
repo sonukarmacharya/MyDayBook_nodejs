@@ -34,7 +34,7 @@ function checkLoginuser(req,res,next){
   }
   next()
 }
-router.get('/dash',checkLoginuser, function(req, res, next) {
+router.get('/',checkLoginuser, function(req, res, next) {
     var userToken= localStorage.getItem('userToken')
     var perpage =2 
     var page = req.params.page || 1

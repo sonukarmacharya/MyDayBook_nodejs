@@ -8,4 +8,3 @@ module.exports  = mongoose.connect(
   },
 );
 
-//abc:qwe123
